@@ -1,0 +1,66 @@
+.dialog{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 10px 20px 8px 4px rgba(130, 102, 102, 0.321);
+
+}
+.dialog form{
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog input{
+    margin-bottom:30px;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    background-color: aliceblue;
+    border-radius: 5px ;
+}
+
+.dialog button{
+    padding: 5px;
+    background-color: rgba(29, 142, 183, 0.801);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom:10px;
+}
+
+.dialog button:hover{
+    background-color: rgba(32, 160, 207, 0.801);
+}
+.container{
+    display: flex;
+}
+
+li{
+    list-style: none;
+    cursor: pointer;
+    
+}
+.title{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 200;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.projectTab{
+    height: 100vh;
+    background-color: aliceblue;
+    padding-right: 100px;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+
+.taskSection{
+    padding-left: 150px;
+
+}

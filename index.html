@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="title">Todo List</div>
+    <div class="container">
+        <aside class="projectTab">
+        <h2>Projects</h2>
+        <ul id ="projectList">
+
+        </ul>
+        <button id ="add-project-btn">Add Project</button>
+        
+        </aside>
+        <main class="taskSection">
+            <h2 class="projectTitle"> Select a Project</h2>
+            <ul id ="taskList">
+
+            </ul>
+            <button id ="add-task-btn">Add Task</button>
+        </main>
+        <div id ="projectDialog" class="dialog">
+            <form id ="projectForm">
+                <h2>Add New Project</h2>
+                <input type="text"  id ="projectName" placeholder="Project Name" required>
+                <button type="submit">Add Project</button>
+                <button type="button" id ="cancelProject">Cancel</button>
+            </form>
+        </div>
+        <div id ="taskDialog" class="dialog">
+            <form id ="taskForm">
+                <h2>Add New Task</h2>
+                <input type="text" id ="taskName" placeholder="task Name" required>
+                <button type="submit">Add Task</button>
+                <button type="button" id ="cancelTask">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script src = "script.js"></script>
+</body>
+</html>
