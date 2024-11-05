@@ -35,7 +35,13 @@
         <div id ="taskDialog" class="dialog">
             <form id ="taskForm">
                 <h2>Add New Task</h2>
-                <input type="text" id ="taskName" placeholder="task Name" required>
+                <input type="text" id ="taskName" placeholder="Task Name" required>
+                <input type="date" id="dateInput" placeholder="DATE" required>
+                <select name="priority" id="priorityInput">
+                    <option value="high">High</option>
+                    <option value="mid">Medium</option>
+                    <option value="low">Low</option>
+                </select>
                 <button type="submit">Add Task</button>
                 <button type="button" id ="cancelTask">Cancel</button>
             </form>

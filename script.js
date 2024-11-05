@@ -14,7 +14,8 @@ const taskForm = document.getElementById('taskForm')
 //creating a var for the input
 const projectInput = document.getElementById('projectName')
 const taskInput = document.getElementById('taskName')
-
+const dateInput = document.getElementById('dateInput')
+const priorityInput = document.getElementById('priorityInput')
 //creating a var for the cancel buttons
 const cancelProjectBtn = document.getElementById('cancelProject')
 const cancelTaskBtn = document.getElementById('cancelTask')
@@ -60,7 +61,7 @@ projectForm.addEventListener('submit', function(e){
     }
 })
 
-//creatng each project
+//creating each project
 function updateProject (){
     projectTab.innerHTML = ''
     projects.forEach (project=>{
@@ -75,23 +76,31 @@ function updateProject (){
     } )
 }
 
-//to add a new tas when the submt button s clced
+//to add a new task when the submit button is clicked
 taskForm.addEventListener('submit' , function(e){
     e.preventDefault()
     const taskName = taskInput.value.trim()
+    const dateName = dateInput.value.trim()
+    const priorityName = priorityInput.value.trim()
     if (taskName && currentProject){
-        currentProject.tasks.push(taskName)
+        const newTask = {
+            name: taskName,
+            date: dateName,
+            priority: priorityName,
+
+        }
+        currentProject.tasks.push(newTask)
         updateTask()
         taskDialog.style.display = 'none'
     } 
 })
 
-
+//creating each task
 function updateTask (){
     taskTab.innerHTML = ''
     currentProject.tasks.forEach(task => {
         const li = document.createElement("li")
-        li.textContent = task
+        li.textContent = `${task.name} ${task.date} ${task.priority}`
         taskTab.appendChild(li)
     })
 }
