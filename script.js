@@ -20,8 +20,17 @@ const priorityInput = document.getElementById('priorityInput')
 const cancelProjectBtn = document.getElementById('cancelProject')
 const cancelTaskBtn = document.getElementById('cancelTask')
 
-let projects = []
+let projects = JSON.parse(localStorage.getItem('projects')) || []
 let currentProject = null
+
+// to save the project in the local storge
+function saveProjects(){
+    localStorage.setItem('projects',JSON.stringify(projects))
+}
+
+document.addEventListener('DOMContentLoaded',() => {
+    updateProject()
+})
 
 //to display the task dialog
 addTaskBtn.addEventListener('click',function(){
@@ -45,6 +54,7 @@ cancelTaskBtn.addEventListener('click',function(){
     taskDialog.style.display = 'none'
 })
 
+saveProjects()
 //to add a new project when the submit button is clicked 
 
 projectForm.addEventListener('submit', function(e){
@@ -56,6 +66,7 @@ projectForm.addEventListener('submit', function(e){
             tasks : []
         }
         projects.push(newProject)
+        saveProjects()
         projectDialog.style.display = 'none'
         updateProject()
     }
@@ -76,6 +87,8 @@ function updateProject (){
     } )
 }
 
+saveProjects()
+
 //to add a new task when the submit button is clicked
 taskForm.addEventListener('submit' , function(e){
     e.preventDefault()
@@ -90,6 +103,7 @@ taskForm.addEventListener('submit' , function(e){
 
         }
         currentProject.tasks.push(newTask)
+        saveProjects()
         updateTask()
         taskDialog.style.display = 'none'
     } 

@@ -7,6 +7,7 @@
     background-color: white;
     padding: 20px;
     box-shadow: 10px 20px 8px 4px rgba(130, 102, 102, 0.321);
+    border-radius: 20px;
 
 }
 .dialog form{
