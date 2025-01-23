@@ -75,19 +75,33 @@ projectForm.addEventListener('submit', function(e){
 //creating each project
 function updateProject (){
     projectTab.innerHTML = ''
-    projects.forEach (project=>{
+    projects.forEach ( (project , index) =>{
         const li = document.createElement("li")
+        li.className = "projectTabList"
         li.textContent = project.name
+        const remove = document.createElement("div")
+        remove.className = "projectRemove"
+        remove.textContent = "x"
+        li.appendChild(remove)
         li.addEventListener('click', function(){
             currentProject = project
             projectTitle.textContent = project.name
             updateTask()
         }) 
+        remove.addEventListener("click",function(e){
+            e.stopPropagation()
+            projects.splice(index, 1);
+            localStorage.removeItem('li')
+            saveProjects()
+            currentProject = null
+            projectTitle.textContent = "Select a project"
+            updateProject()
+            
+        })
         projectTab.append(li)
     } )
 }
-
-saveProjects()
+saveProjects() 
 
 //to add a new task when the submit button is clicked
 taskForm.addEventListener('submit' , function(e){
