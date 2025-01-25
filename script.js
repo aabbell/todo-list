@@ -122,13 +122,37 @@ taskForm.addEventListener('submit' , function(e){
         taskDialog.style.display = 'none'
     } 
 })
-
 //creating each task
 function updateTask (){
     taskTab.innerHTML = ''
-    currentProject.tasks.forEach(task => {
+    currentProject.tasks.forEach((task , index) => {
         const li = document.createElement("li")
-        li.textContent = `${task.name} ${task.date} ${task.priority}`
+        li.className = "taskListEach"
+        li.addEventListener("click" , function(e){
+            e.stopPropagation()
+            currentProject.tasks.splice(index, 1)
+            localStorage.removeItem('li')
+            saveProjects()
+            updateTask()
+            
+        })
+        li.textContent = `${task.name}`
+        switch (task.priority) {
+            case "mid":
+                li.style.backgroundColor = "#EEE396";
+                break;
+            case "high":
+                li.style.backgroundColor = "#EE969A";
+                break;
+            case "low": 
+                li.style.backgroundColor = "#9DEE96"; 
+                break;
+            default:
+                li.style.backgroundColor = "white"
+        }
         taskTab.appendChild(li)
+
     })
+    
 }
+
